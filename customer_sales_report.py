@@ -37,7 +37,7 @@ for row in reader:
             found = True
 
     # adds [205, 1043.53] initially, then asks (for sale in id_subtotal) to complete the total and move to the next in sales.csv
-    # adds initial value to the list, to be questioned then updated*
+    # adds initial value to the list, to be questioned then updated
 
     if not found:
         id_subtotal.append([cust_id, subtotal])
