@@ -14,9 +14,11 @@ next(reader)
 outfile = open(SALES_REPORT, 'w', newline='')
 writer = csv.writer(outfile, delimiter=',')
 
-# iterate through sales.csv
+# create list for id's and final subtotals
 
 id_subtotal = []
+
+# iterate through sales.csv
 
 for row in reader:
 
@@ -26,19 +28,21 @@ for row in reader:
     cust_id = row[0]
     found = False
 
-    # adds subtotal if id is found within [totals]
+    # create a list of id numbers and subtotals added from corresponding id's
+    # this for loop updates the subtotal in the list by finding existing id's and adding their totals to the lists index
 
     for sale in id_subtotal:
         if sale[0] == cust_id:
             sale[1] += subtotal
             found = True
 
-    # fills [totals], storing id's and calculated subtotals
+    # adds [205, 1043.53] initially, then asks (for sale in id_subtotal) to complete the total and move to the next in sales.csv
+    # adds initial value to the list, to be questioned then updated*
 
     if not found:
         id_subtotal.append([cust_id, subtotal])
 
-# write values into csv, formatted
+# write values into .csv, formatted
 
 writer.writerow(['Customer | Total'])
 
