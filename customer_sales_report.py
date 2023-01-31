@@ -31,9 +31,9 @@ for row in reader:
     # create a list of id numbers and subtotals added from corresponding id's
     # this for loop updates the subtotal in the list by finding existing id's and adding their totals to the lists index
 
-    for sale in id_subtotal:
-        if sale[0] == cust_id:
-            sale[1] += subtotal
+    for index in id_subtotal:
+        if index[0] == cust_id:
+            index[1] += subtotal
             found = True
 
     # adds [205, 1043.53] initially, then asks (for sale in id_subtotal) to complete the total and move to the next in sales.csv
@@ -46,5 +46,5 @@ for row in reader:
 
 writer.writerow(['Customer | Total'])
 
-for cust_id, sale in id_subtotal:
-    writer.writerow([cust_id, format(sale, '>12.2f')])
+for cust_id, index in id_subtotal:
+    writer.writerow([cust_id, format(index, '>12.2f')])
